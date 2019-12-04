@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     def profile
      render json: { user: current_user }, status: :accepted
     end 
-    
+
     def create
        @user =  User.new(user_params)
        if @user.save
