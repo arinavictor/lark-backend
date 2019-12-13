@@ -14,6 +14,12 @@ class UsersController < ApplicationController
        end
     end 
 
+    def show
+        @user = User.find_by(parms[:id])
+
+        render json: @user
+    end
+
 
     private 
 
