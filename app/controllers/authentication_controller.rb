@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
            @token = JWT.encode({
                user_id: @user.id,
                exp: 24.hours.from_now.to_i
-            }, Rails.application.secrets.secret_key_base)
+            }, ENV['SECRET_KEY_BASE'])
           
            render json: { token: @token, user: {id: @user.id, username: @user.username}}, status: :ok
         else 
